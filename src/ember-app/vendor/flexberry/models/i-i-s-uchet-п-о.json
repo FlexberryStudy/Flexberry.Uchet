@@ -1,0 +1,107 @@
+﻿{
+  "name": "IISUchetПО",
+  "modelName": "i-i-s-uchet-п-о",
+  "className": "ПО",
+  "nameSpace": "IIS.Uchet",
+  "parentModelName": null,
+  "parentClassName": null,
+  "attrs": [
+    {
+      "name": "название",
+      "type": "string",
+      "flexberryType": "string",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "версия",
+      "type": "string",
+      "flexberryType": "string",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "freeware",
+      "type": "boolean",
+      "flexberryType": "bool",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    }
+  ],
+  "belongsTo": [
+    {
+      "polymorphic": false,
+      "presence": true,
+      "name": "вендор",
+      "relatedTo": "i-i-s-uchet-вендор",
+      "inverse": null
+    },
+    {
+      "polymorphic": false,
+      "presence": true,
+      "name": "рабочееМесто",
+      "relatedTo": "i-i-s-uchet-рабочее-место",
+      "inverse": "пО"
+    }
+  ],
+  "hasMany": [],
+  "projections": [
+    {
+      "name": "ПОE",
+      "modelName": "i-i-s-uchet-п-о",
+      "attrs": [
+        {
+          "name": "название",
+          "caption": "Название",
+          "hidden": false,
+          "index": 0
+        },
+        {
+          "name": "версия",
+          "caption": "Версия",
+          "hidden": false,
+          "index": 1
+        },
+        {
+          "name": "freeware",
+          "caption": "Freeware",
+          "hidden": false,
+          "index": 2
+        }
+      ],
+      "belongsTo": [
+        {
+          "lookupValue": "Название",
+          "lookupValueField": "название",
+          "relationName": "Вендор",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "название",
+              "caption": "Название",
+              "hidden": true,
+              "index": 4
+            }
+          ],
+          "index": 3,
+          "type": "standard",
+          "caption": "Вендор",
+          "name": "вендор",
+          "relatedTo": "i-i-s-uchet-вендор",
+          "inverse": null
+        }
+      ],
+      "hasMany": []
+    }
+  ],
+  "stored": true,
+  "offline": true,
+  "external": false
+}

@@ -1,0 +1,47 @@
+﻿{
+  "propertyLookup": [
+    {
+      "master": null,
+      "displayAttributeName": null,
+      "required": false,
+      "relationName": "Филиал",
+      "projection": "ФилиалL",
+      "detailModelName": null
+    },
+    {
+      "master": "сотрудник",
+      "displayAttributeName": "фИО",
+      "required": true,
+      "relationName": "Оборудование.Сотрудник",
+      "projection": "ПользовательL",
+      "detailModelName": "i-i-s-uchet-оборудование"
+    },
+    {
+      "master": "тип",
+      "displayAttributeName": "название",
+      "required": true,
+      "relationName": "Оборудование.Тип",
+      "projection": "ТипL",
+      "detailModelName": "i-i-s-uchet-оборудование"
+    },
+    {
+      "master": "вендор",
+      "displayAttributeName": "название",
+      "required": true,
+      "relationName": "ПО.Вендор",
+      "projection": "ВендорL",
+      "detailModelName": "i-i-s-uchet-п-о"
+    }
+  ],
+  "external": false,
+  "caption": "Рабочее место",
+  "name": "IISUchetРабочееМестоE",
+  "className": "РабочееМестоE",
+  "attrs": [],
+  "projections": [
+    {
+      "modelName": "i-i-s-uchet-рабочее-место",
+      "modelProjection": "РабочееМестоE"
+    }
+  ]
+}

@@ -1,0 +1,174 @@
+﻿{
+  "name": "IISUchetРабочееМесто",
+  "modelName": "i-i-s-uchet-рабочее-место",
+  "className": "РабочееМесто",
+  "nameSpace": "IIS.Uchet",
+  "parentModelName": null,
+  "parentClassName": null,
+  "attrs": [
+    {
+      "name": "инвНомер",
+      "type": "string",
+      "flexberryType": "string",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "кабинет",
+      "type": "string",
+      "flexberryType": "string",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "место",
+      "type": "string",
+      "flexberryType": "string",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    }
+  ],
+  "belongsTo": [
+    {
+      "polymorphic": false,
+      "presence": true,
+      "name": "филиал",
+      "relatedTo": "i-i-s-uchet-филиал",
+      "inverse": null
+    }
+  ],
+  "hasMany": [
+    {
+      "name": "пО",
+      "relatedTo": "i-i-s-uchet-п-о",
+      "inverse": "рабочееМесто"
+    },
+    {
+      "name": "оборудование",
+      "relatedTo": "i-i-s-uchet-оборудование",
+      "inverse": "рабочееМесто"
+    }
+  ],
+  "projections": [
+    {
+      "name": "РабочееМестоE",
+      "modelName": "i-i-s-uchet-рабочее-место",
+      "attrs": [
+        {
+          "name": "инвНомер",
+          "caption": "Инв номер",
+          "hidden": false,
+          "index": 0
+        },
+        {
+          "name": "кабинет",
+          "caption": "Кабинет",
+          "hidden": false,
+          "index": 1
+        },
+        {
+          "name": "место",
+          "caption": "Место",
+          "hidden": false,
+          "index": 2
+        }
+      ],
+      "belongsTo": [
+        {
+          "lookupValue": "Название",
+          "lookupValueField": "название",
+          "relationName": "Филиал",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "название",
+              "caption": "Название",
+              "hidden": true,
+              "index": 4
+            }
+          ],
+          "index": 3,
+          "type": "standard",
+          "caption": "Филиал",
+          "name": "филиал",
+          "relatedTo": "i-i-s-uchet-филиал",
+          "inverse": null
+        }
+      ],
+      "hasMany": [
+        {
+          "projectionName": "ОборудованиеE",
+          "caption": "Оборудование",
+          "name": "оборудование",
+          "relatedTo": "i-i-s-uchet-оборудование",
+          "inverse": null
+        },
+        {
+          "projectionName": "ПОE",
+          "caption": "ПО",
+          "name": "пО",
+          "relatedTo": "i-i-s-uchet-п-о",
+          "inverse": null
+        }
+      ]
+    },
+    {
+      "name": "РабочееМестоL",
+      "modelName": "i-i-s-uchet-рабочее-место",
+      "attrs": [
+        {
+          "name": "инвНомер",
+          "caption": "Инв номер",
+          "hidden": false,
+          "index": 0
+        },
+        {
+          "name": "кабинет",
+          "caption": "Кабинет",
+          "hidden": false,
+          "index": 1
+        },
+        {
+          "name": "место",
+          "caption": "Место",
+          "hidden": false,
+          "index": 2
+        }
+      ],
+      "belongsTo": [
+        {
+          "lookupValue": null,
+          "lookupValueField": null,
+          "relationName": "Филиал",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "название",
+              "caption": "Название",
+              "hidden": false,
+              "index": 3
+            }
+          ],
+          "index": -1,
+          "type": "default",
+          "caption": "Название",
+          "name": "филиал",
+          "relatedTo": "i-i-s-uchet-филиал",
+          "inverse": null
+        }
+      ],
+      "hasMany": []
+    }
+  ],
+  "stored": true,
+  "offline": true,
+  "external": false
+}

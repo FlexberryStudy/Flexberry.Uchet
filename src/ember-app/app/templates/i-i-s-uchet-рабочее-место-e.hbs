@@ -1,0 +1,105 @@
+<h3 class="ui header">{{t "forms.i-i-s-uchet-рабочее-место-e.caption"}}</h3>
+
+<form class="ui form flexberry-vertical-form" role="form">
+  {{flexberry-error error=error}}
+  <div class="field">
+    <div class="flexberry-edit-panel">
+      {{#unless readonly}}
+        <button class="ui button save-button" {{action "save"}}>
+          {{t "forms.edit-form.save-button-text"}}
+        </button>
+        {{#unless model.isNew}}
+          <button class="ui button save-del-button" {{action "delete"}}>
+            {{t "forms.edit-form.delete-button-text"}}
+          </button>
+        {{/unless}}
+      {{/unless}}
+      <button class="ui button close-button" {{action "close"}}>
+        {{t "forms.edit-form.close-button-text"}}
+      </button>
+    </div>
+  </div>
+  <div class="field flexberry-validationsummary-container">
+    <div class="sixteen wide">
+      {{flexberry-validationsummary errors=(v-get validationObject "messages")}}
+    </div>
+  </div>
+  <div class="field">
+    {{flexberry-field
+      readonly=readonly
+      value=model.инвНомер
+      class=(if (v-get validationObject "инвНомер" "isInvalid") "error")
+      label=(t "forms.i-i-s-uchet-рабочее-место-e.инвНомер-caption")
+      data-test-i-i-s-uchet-рабочее-место-e-инвНомер=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationObject "инвНомер" "message")}}
+  </div>
+  <div class="field">
+    {{flexberry-field
+      readonly=readonly
+      value=model.кабинет
+      class=(if (v-get validationObject "кабинет" "isInvalid") "error")
+      label=(t "forms.i-i-s-uchet-рабочее-место-e.кабинет-caption")
+      data-test-i-i-s-uchet-рабочее-место-e-кабинет=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationObject "кабинет" "message")}}
+  </div>
+  <div class="field">
+    {{flexberry-field
+      readonly=readonly
+      value=model.место
+      class=(if (v-get validationObject "место" "isInvalid") "error")
+      label=(t "forms.i-i-s-uchet-рабочее-место-e.место-caption")
+      data-test-i-i-s-uchet-рабочее-место-e-место=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationObject "место" "message")}}
+  </div>
+  <div class="field">
+    <label>{{t "forms.i-i-s-uchet-рабочее-место-e.филиал-caption"}}</label>
+    {{flexberry-lookup
+      choose="showLookupDialog"
+      remove="removeLookupValue"
+      value=model.филиал
+      class=(if (v-get validationObject "филиал" "isInvalid") "error")
+      displayAttributeName="название"
+      autocomplete=true
+      relationName="филиал"
+      projection="ФилиалL"
+      title=(t "forms.i-i-s-uchet-рабочее-место-e.филиал-caption")
+      readonly=readonly
+      componentName="филиалLookup"
+      class=(if (v-get validationObject "филиал" "isInvalid") "error")
+      data-test-i-i-s-uchet-рабочее-место-e-филиал=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationObject "филиал" "message")}}
+  </div>
+
+  <div class="field">
+    <label>{{t "forms.i-i-s-uchet-рабочее-место-e.оборудование-caption"}}</label>
+    {{flexberry-groupedit
+      componentName="оборудованиеGroupEdit"
+      mainModelProjection=modelProjection
+      modelProjection=modelProjection.attributes.оборудование
+      content=model.оборудование
+      readonly=readonly
+      orderable=false
+      class=(if (v-get validationObject "оборудование" "isInvalid") "error")
+      data-test-i-i-s-uchet-рабочее-место-e-оборудование=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationObject "оборудование" "message")}}
+  </div>
+  <div class="field">
+    <label>{{t "forms.i-i-s-uchet-рабочее-место-e.пО-caption"}}</label>
+    {{flexberry-groupedit
+      componentName="пОGroupEdit"
+      mainModelProjection=modelProjection
+      modelProjection=modelProjection.attributes.пО
+      content=model.пО
+      readonly=readonly
+      orderable=false
+      class=(if (v-get validationObject "пО" "isInvalid") "error")
+      data-test-i-i-s-uchet-рабочее-место-e-пО=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationObject "пО" "message")}}
+  </div>
+</form>

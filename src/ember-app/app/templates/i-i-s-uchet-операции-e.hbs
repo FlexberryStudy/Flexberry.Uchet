@@ -1,0 +1,101 @@
+<h3 class="ui header">{{t "forms.i-i-s-uchet-операции-e.caption"}}</h3>
+
+<form class="ui form flexberry-vertical-form" role="form">
+  {{flexberry-error error=error}}
+  <div class="field">
+    <div class="flexberry-edit-panel">
+      {{#unless readonly}}
+        <button class="ui button save-button" {{action "save"}}>
+          {{t "forms.edit-form.save-button-text"}}
+        </button>
+        {{#unless model.isNew}}
+          <button class="ui button save-del-button" {{action "delete"}}>
+            {{t "forms.edit-form.delete-button-text"}}
+          </button>
+        {{/unless}}
+      {{/unless}}
+      <button class="ui button close-button" {{action "close"}}>
+        {{t "forms.edit-form.close-button-text"}}
+      </button>
+    </div>
+  </div>
+  <div class="field flexberry-validationsummary-container">
+    <div class="sixteen wide">
+      {{flexberry-validationsummary errors=(v-get validationObject "messages")}}
+    </div>
+  </div>
+  <div class="field">
+    <label>{{t "forms.i-i-s-uchet-операции-e.дата-caption"}}</label>
+    {{
+      flexberry-simpledatetime
+      type="date"
+      placeholder=(t 'components.flexberry-datepicker.placeholder')
+      readonly=readonly
+      value=model.дата
+      class=(if (v-get validationObject "дата" "isInvalid") "error")
+      data-test-i-i-s-uchet-операции-e-дата=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationObject "дата" "message")}}
+  </div>
+
+  <div class="field" data-test-i-i-s-uchet-операции-e-действие="true">
+    <label>{{t "forms.i-i-s-uchet-операции-e.действие-caption"}}</label>
+    {{flexberry-dropdown
+      items=(flexberry-enum "i-i-s-uchet-t-действие")
+      value=model.действие
+      class=(if (v-get validationObject "действие" "isInvalid") "error")
+      readonly=readonly
+    }}
+    {{flexberry-validationmessage error=(v-get validationObject "действие" "message")}}
+  </div>
+  <div class="field" data-test-i-i-s-uchet-операции-e-состояние="true">
+    <label>{{t "forms.i-i-s-uchet-операции-e.состояние-caption"}}</label>
+    {{flexberry-dropdown
+      items=(flexberry-enum "i-i-s-uchet-t-состояние")
+      value=model.состояние
+      class=(if (v-get validationObject "состояние" "isInvalid") "error")
+      readonly=readonly
+    }}
+    {{flexberry-validationmessage error=(v-get validationObject "состояние" "message")}}
+  </div>
+  <div class="field">
+    <label>{{t "forms.i-i-s-uchet-операции-e.оборудование-caption"}}</label>
+    {{flexberry-lookup
+      choose="showLookupDialog"
+      remove="removeLookupValue"
+      value=model.оборудование
+      class=(if (v-get validationObject "оборудование" "isInvalid") "error")
+      displayAttributeName="инвНомер"
+      autocomplete=true
+      relationName="оборудование"
+      projection="ОборудованиеL"
+      title=(t "forms.i-i-s-uchet-операции-e.оборудование-caption")
+      readonly=readonly
+      componentName="оборудованиеLookup"
+      class=(if (v-get validationObject "оборудование" "isInvalid") "error")
+      data-test-i-i-s-uchet-операции-e-оборудование=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationObject "оборудование" "message")}}
+  </div>
+
+  <div class="field">
+    <label>{{t "forms.i-i-s-uchet-операции-e.админ-caption"}}</label>
+    {{flexberry-lookup
+      choose="showLookupDialog"
+      remove="removeLookupValue"
+      value=model.админ
+      class=(if (v-get validationObject "админ" "isInvalid") "error")
+      displayAttributeName="фИО"
+      autocomplete=true
+      relationName="админ"
+      projection="ПользовательL"
+      title=(t "forms.i-i-s-uchet-операции-e.админ-caption")
+      readonly=readonly
+      componentName="админLookup"
+      class=(if (v-get validationObject "админ" "isInvalid") "error")
+      data-test-i-i-s-uchet-операции-e-админ=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationObject "админ" "message")}}
+  </div>
+
+</form>

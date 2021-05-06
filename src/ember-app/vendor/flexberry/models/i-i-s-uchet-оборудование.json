@@ -1,0 +1,204 @@
+﻿{
+  "name": "IISUchetОборудование",
+  "modelName": "i-i-s-uchet-оборудование",
+  "className": "Оборудование",
+  "nameSpace": "IIS.Uchet",
+  "parentModelName": null,
+  "parentClassName": null,
+  "attrs": [
+    {
+      "name": "название",
+      "type": "string",
+      "flexberryType": "string",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "датаДобавления",
+      "type": "date",
+      "flexberryType": "DateTime",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "инвНомер",
+      "type": "string",
+      "flexberryType": "string",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    }
+  ],
+  "belongsTo": [
+    {
+      "polymorphic": false,
+      "presence": true,
+      "name": "сотрудник",
+      "relatedTo": "i-i-s-uchet-пользователь",
+      "inverse": null
+    },
+    {
+      "polymorphic": false,
+      "presence": true,
+      "name": "тип",
+      "relatedTo": "i-i-s-uchet-тип",
+      "inverse": null
+    },
+    {
+      "polymorphic": false,
+      "presence": true,
+      "name": "рабочееМесто",
+      "relatedTo": "i-i-s-uchet-рабочее-место",
+      "inverse": "оборудование"
+    }
+  ],
+  "hasMany": [],
+  "projections": [
+    {
+      "name": "ОборудованиеE",
+      "modelName": "i-i-s-uchet-оборудование",
+      "attrs": [
+        {
+          "name": "инвНомер",
+          "caption": "Инв номер",
+          "hidden": false,
+          "index": 0
+        },
+        {
+          "name": "название",
+          "caption": "Название",
+          "hidden": false,
+          "index": 1
+        },
+        {
+          "name": "датаДобавления",
+          "caption": "Дата добавления",
+          "hidden": false,
+          "index": 2
+        }
+      ],
+      "belongsTo": [
+        {
+          "lookupValue": "ФИО",
+          "lookupValueField": "фИО",
+          "relationName": "Сотрудник",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "фИО",
+              "caption": "ФИО",
+              "hidden": true,
+              "index": 4
+            }
+          ],
+          "index": 3,
+          "type": "standard",
+          "caption": "Сотрудник",
+          "name": "сотрудник",
+          "relatedTo": "i-i-s-uchet-пользователь",
+          "inverse": null
+        },
+        {
+          "lookupValue": "Название",
+          "lookupValueField": "название",
+          "relationName": "Тип",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "название",
+              "caption": "Название",
+              "hidden": true,
+              "index": 6
+            }
+          ],
+          "index": 5,
+          "type": "standard",
+          "caption": "Тип",
+          "name": "тип",
+          "relatedTo": "i-i-s-uchet-тип",
+          "inverse": null
+        }
+      ],
+      "hasMany": []
+    },
+    {
+      "name": "ОборудованиеL",
+      "modelName": "i-i-s-uchet-оборудование",
+      "attrs": [
+        {
+          "name": "инвНомер",
+          "caption": "Инвентаризационный номер",
+          "hidden": false,
+          "index": 0
+        },
+        {
+          "name": "название",
+          "caption": "Название",
+          "hidden": false,
+          "index": 1
+        },
+        {
+          "name": "датаДобавления",
+          "caption": "Дата добавления",
+          "hidden": false,
+          "index": 2
+        }
+      ],
+      "belongsTo": [
+        {
+          "lookupValue": null,
+          "lookupValueField": null,
+          "relationName": "Тип",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "название",
+              "caption": "Тип",
+              "hidden": false,
+              "index": 3
+            }
+          ],
+          "index": -1,
+          "type": "default",
+          "caption": "Тип",
+          "name": "тип",
+          "relatedTo": "i-i-s-uchet-тип",
+          "inverse": null
+        },
+        {
+          "lookupValue": null,
+          "lookupValueField": null,
+          "relationName": "Сотрудник",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "фИО",
+              "caption": "Сотрудник",
+              "hidden": false,
+              "index": 4
+            }
+          ],
+          "index": -1,
+          "type": "default",
+          "caption": "Сотрудник",
+          "name": "сотрудник",
+          "relatedTo": "i-i-s-uchet-пользователь",
+          "inverse": null
+        }
+      ],
+      "hasMany": []
+    }
+  ],
+  "stored": true,
+  "offline": true,
+  "external": false
+}

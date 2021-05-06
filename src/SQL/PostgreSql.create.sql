@@ -1,0 +1,340 @@
+﻿
+
+
+
+
+CREATE TABLE Тип (
+
+ primaryKey UUID NOT NULL,
+
+ Название VARCHAR(255) NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+CREATE TABLE Филиал (
+
+ primaryKey UUID NOT NULL,
+
+ Название VARCHAR(255) NULL,
+
+ Адрес VARCHAR(255) NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+CREATE TABLE ПО (
+
+ primaryKey UUID NOT NULL,
+
+ Название VARCHAR(255) NULL,
+
+ Версия VARCHAR(255) NULL,
+
+ Freeware BOOLEAN NULL,
+
+ Вендор_m0 UUID NOT NULL,
+
+ РабочееМесто_m0 UUID NOT NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+CREATE TABLE Вендор (
+
+ primaryKey UUID NOT NULL,
+
+ Название VARCHAR(255) NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+CREATE TABLE Операции (
+
+ primaryKey UUID NOT NULL,
+
+ Дата TIMESTAMP(3) NULL,
+
+ Действие VARCHAR(9) NULL,
+
+ Состояние VARCHAR(7) NULL,
+
+ Оборудование_m0 UUID NOT NULL,
+
+ Админ_m0 UUID NOT NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+CREATE TABLE РабочееМесто (
+
+ primaryKey UUID NOT NULL,
+
+ ИнвНомер VARCHAR(255) NULL,
+
+ Кабинет VARCHAR(255) NULL,
+
+ Место VARCHAR(255) NULL,
+
+ Филиал_m0 UUID NOT NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+CREATE TABLE Оборудование (
+
+ primaryKey UUID NOT NULL,
+
+ ИнвНомер VARCHAR(255) NULL,
+
+ Название VARCHAR(255) NULL,
+
+ ДатаДобавления TIMESTAMP(3) NULL,
+
+ Сотрудник_m0 UUID NOT NULL,
+
+ Тип_m0 UUID NOT NULL,
+
+ РабочееМесто_m0 UUID NOT NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+CREATE TABLE Пользователь (
+
+ primaryKey UUID NOT NULL,
+
+ ФИО VARCHAR(255) NULL,
+
+ Админ BOOLEAN NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+CREATE TABLE STORMNETLOCKDATA (
+
+ LockKey VARCHAR(300) NOT NULL,
+
+ UserName VARCHAR(300) NOT NULL,
+
+ LockDate TIMESTAMP(3) NULL,
+
+ PRIMARY KEY (LockKey));
+
+
+
+CREATE TABLE STORMSETTINGS (
+
+ primaryKey UUID NOT NULL,
+
+ Module VARCHAR(1000) NULL,
+
+ Name VARCHAR(255) NULL,
+
+ Value TEXT NULL,
+
+ "User" VARCHAR(255) NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+CREATE TABLE STORMAdvLimit (
+
+ primaryKey UUID NOT NULL,
+
+ "User" VARCHAR(255) NULL,
+
+ Published BOOLEAN NULL,
+
+ Module VARCHAR(255) NULL,
+
+ Name VARCHAR(255) NULL,
+
+ Value TEXT NULL,
+
+ HotKeyData INT NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+CREATE TABLE STORMFILTERSETTING (
+
+ primaryKey UUID NOT NULL,
+
+ Name VARCHAR(255) NOT NULL,
+
+ DataObjectView VARCHAR(255) NOT NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+CREATE TABLE STORMWEBSEARCH (
+
+ primaryKey UUID NOT NULL,
+
+ Name VARCHAR(255) NOT NULL,
+
+ "Order" INT NOT NULL,
+
+ PresentView VARCHAR(255) NOT NULL,
+
+ DetailedView VARCHAR(255) NOT NULL,
+
+ FilterSetting_m0 UUID NOT NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+CREATE TABLE STORMFILTERDETAIL (
+
+ primaryKey UUID NOT NULL,
+
+ Caption VARCHAR(255) NOT NULL,
+
+ DataObjectView VARCHAR(255) NOT NULL,
+
+ ConnectMasterProp VARCHAR(255) NOT NULL,
+
+ OwnerConnectProp VARCHAR(255) NULL,
+
+ FilterSetting_m0 UUID NOT NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+CREATE TABLE STORMFILTERLOOKUP (
+
+ primaryKey UUID NOT NULL,
+
+ DataObjectType VARCHAR(255) NOT NULL,
+
+ Container VARCHAR(255) NULL,
+
+ ContainerTag VARCHAR(255) NULL,
+
+ FieldsToView VARCHAR(255) NULL,
+
+ FilterSetting_m0 UUID NOT NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+CREATE TABLE UserSetting (
+
+ primaryKey UUID NOT NULL,
+
+ AppName VARCHAR(256) NULL,
+
+ UserName VARCHAR(512) NULL,
+
+ UserGuid UUID NULL,
+
+ ModuleName VARCHAR(1024) NULL,
+
+ ModuleGuid UUID NULL,
+
+ SettName VARCHAR(256) NULL,
+
+ SettGuid UUID NULL,
+
+ SettLastAccessTime TIMESTAMP(3) NULL,
+
+ StrVal VARCHAR(256) NULL,
+
+ TxtVal TEXT NULL,
+
+ IntVal INT NULL,
+
+ BoolVal BOOLEAN NULL,
+
+ GuidVal UUID NULL,
+
+ DecimalVal DECIMAL(20,10) NULL,
+
+ DateTimeVal TIMESTAMP(3) NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+CREATE TABLE ApplicationLog (
+
+ primaryKey UUID NOT NULL,
+
+ Category VARCHAR(64) NULL,
+
+ EventId INT NULL,
+
+ Priority INT NULL,
+
+ Severity VARCHAR(32) NULL,
+
+ Title VARCHAR(256) NULL,
+
+ Timestamp TIMESTAMP(3) NULL,
+
+ MachineName VARCHAR(32) NULL,
+
+ AppDomainName VARCHAR(512) NULL,
+
+ ProcessId VARCHAR(256) NULL,
+
+ ProcessName VARCHAR(512) NULL,
+
+ ThreadName VARCHAR(512) NULL,
+
+ Win32ThreadId VARCHAR(128) NULL,
+
+ Message VARCHAR(2500) NULL,
+
+ FormattedMessage TEXT NULL,
+
+ PRIMARY KEY (primaryKey));
+
+
+
+
+ ALTER TABLE ПО ADD CONSTRAINT FK8514d6ebc8ad29e490596027480af11bfce4c5e1 FOREIGN KEY (Вендор_m0) REFERENCES Вендор; 
+CREATE INDEX Index8514d6ebc8ad29e490596027480af11bfce4c5e1 on ПО (Вендор_m0); 
+
+ ALTER TABLE ПО ADD CONSTRAINT FKb6f150cbefd10ca0255e22450634bc0e7832accc FOREIGN KEY (РабочееМесто_m0) REFERENCES РабочееМесто; 
+CREATE INDEX Indexb6f150cbefd10ca0255e22450634bc0e7832accc on ПО (РабочееМесто_m0); 
+
+ ALTER TABLE Операции ADD CONSTRAINT FKf75f93dc3126f2b4a2440c1192666d92e1da1e7a FOREIGN KEY (Оборудование_m0) REFERENCES Оборудование; 
+CREATE INDEX Indexf75f93dc3126f2b4a2440c1192666d92e1da1e7a on Операции (Оборудование_m0); 
+
+ ALTER TABLE Операции ADD CONSTRAINT FK7da861494c56f4db1e30bd4f13e88b22845b1b5c FOREIGN KEY (Админ_m0) REFERENCES Пользователь; 
+CREATE INDEX Index7da861494c56f4db1e30bd4f13e88b22845b1b5c on Операции (Админ_m0); 
+
+ ALTER TABLE РабочееМесто ADD CONSTRAINT FKb6fbe2b98fd006094c4f63156518e43c1a279769 FOREIGN KEY (Филиал_m0) REFERENCES Филиал; 
+CREATE INDEX Indexb6fbe2b98fd006094c4f63156518e43c1a279769 on РабочееМесто (Филиал_m0); 
+
+ ALTER TABLE Оборудование ADD CONSTRAINT FK9717f74518616b7168d2712eeec6bda1b4b07fc1 FOREIGN KEY (Сотрудник_m0) REFERENCES Пользователь; 
+CREATE INDEX Index9717f74518616b7168d2712eeec6bda1b4b07fc1 on Оборудование (Сотрудник_m0); 
+
+ ALTER TABLE Оборудование ADD CONSTRAINT FK57746932399e22d42f41e5908da244f0b735ed49 FOREIGN KEY (Тип_m0) REFERENCES Тип; 
+CREATE INDEX Index57746932399e22d42f41e5908da244f0b735ed49 on Оборудование (Тип_m0); 
+
+ ALTER TABLE Оборудование ADD CONSTRAINT FKdf13ba8cd91260ba47fe000a3f8f85edfbd687f8 FOREIGN KEY (РабочееМесто_m0) REFERENCES РабочееМесто; 
+CREATE INDEX Indexdf13ba8cd91260ba47fe000a3f8f85edfbd687f8 on Оборудование (РабочееМесто_m0); 
+
+ ALTER TABLE STORMWEBSEARCH ADD CONSTRAINT FKc4378e39870eb056aec84088683297a01d2a6200 FOREIGN KEY (FilterSetting_m0) REFERENCES STORMFILTERSETTING; 
+
+ ALTER TABLE STORMFILTERDETAIL ADD CONSTRAINT FK921d16269835017e2a0d0e29ad6fb175454a70d0 FOREIGN KEY (FilterSetting_m0) REFERENCES STORMFILTERSETTING; 
+
+ ALTER TABLE STORMFILTERLOOKUP ADD CONSTRAINT FKce38ef0db3f01a53acaa49fed8853fb941ad47ba FOREIGN KEY (FilterSetting_m0) REFERENCES STORMFILTERSETTING; 
+

@@ -1,0 +1,15 @@
+﻿{
+  "newForm": "i-i-s-uchet-операции-e",
+  "editForm": "i-i-s-uchet-операции-e",
+  "external": false,
+  "caption": "Операции",
+  "name": "IISUchetОперацииL",
+  "className": "ОперацииL",
+  "attrs": [],
+  "projections": [
+    {
+      "modelName": "i-i-s-uchet-операции",
+      "modelProjection": "ОперацииL"
+    }
+  ]
+}

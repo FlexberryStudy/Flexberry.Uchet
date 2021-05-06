@@ -1,0 +1,15 @@
+﻿{
+  "newForm": "i-i-s-uchet-рабочее-место-e",
+  "editForm": "i-i-s-uchet-рабочее-место-e",
+  "external": false,
+  "caption": "Рабочее место",
+  "name": "IISUchetРабочееМестоL",
+  "className": "РабочееМестоL",
+  "attrs": [],
+  "projections": [
+    {
+      "modelName": "i-i-s-uchet-рабочее-место",
+      "modelProjection": "РабочееМестоL"
+    }
+  ]
+}

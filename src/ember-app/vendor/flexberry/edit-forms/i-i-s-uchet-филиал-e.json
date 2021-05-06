@@ -1,0 +1,14 @@
+﻿{
+  "propertyLookup": [],
+  "external": false,
+  "caption": "Филиал",
+  "name": "IISUchetФилиалE",
+  "className": "ФилиалE",
+  "attrs": [],
+  "projections": [
+    {
+      "modelName": "i-i-s-uchet-филиал",
+      "modelProjection": "ФилиалE"
+    }
+  ]
+}

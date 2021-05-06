@@ -1,0 +1,15 @@
+﻿{
+  "newForm": null,
+  "editForm": null,
+  "external": false,
+  "caption": "",
+  "name": "IISUchetОборудованиеL",
+  "className": "ОборудованиеL",
+  "attrs": [],
+  "projections": [
+    {
+      "modelName": "i-i-s-uchet-оборудование",
+      "modelProjection": "ОборудованиеL"
+    }
+  ]
+}

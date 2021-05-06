@@ -1,0 +1,15 @@
+﻿{
+  "newForm": "i-i-s-uchet-вендор-e",
+  "editForm": "i-i-s-uchet-вендор-e",
+  "external": false,
+  "caption": "Вендор",
+  "name": "IISUchetВендорL",
+  "className": "ВендорL",
+  "attrs": [],
+  "projections": [
+    {
+      "modelName": "i-i-s-uchet-вендор",
+      "modelProjection": "ВендорL"
+    }
+  ]
+}

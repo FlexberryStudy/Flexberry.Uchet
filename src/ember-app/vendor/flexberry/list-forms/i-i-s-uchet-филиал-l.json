@@ -1,0 +1,15 @@
+﻿{
+  "newForm": "i-i-s-uchet-филиал-e",
+  "editForm": "i-i-s-uchet-филиал-e",
+  "external": false,
+  "caption": "Филиал",
+  "name": "IISUchetФилиалL",
+  "className": "ФилиалL",
+  "attrs": [],
+  "projections": [
+    {
+      "modelName": "i-i-s-uchet-филиал",
+      "modelProjection": "ФилиалL"
+    }
+  ]
+}

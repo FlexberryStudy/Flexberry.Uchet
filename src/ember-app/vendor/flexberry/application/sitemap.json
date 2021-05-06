@@ -1,0 +1,65 @@
+﻿{
+  "applicationCaption": "Uchet",
+  "applicationTitle": "Uchet",
+  "items": [
+    {
+      "link": null,
+      "menuName": "учет-оборудования-и-п-о",
+      "caption": "Учет оборудования и ПО",
+      "title": "Учет оборудования и ПО",
+      "children": [
+        {
+          "link": "i-i-s-uchet-рабочее-место-l",
+          "menuName": null,
+          "caption": "Рабочее место",
+          "title": "",
+          "children": null
+        },
+        {
+          "link": "i-i-s-uchet-операции-l",
+          "menuName": null,
+          "caption": "Операции",
+          "title": "",
+          "children": null
+        }
+      ]
+    },
+    {
+      "link": null,
+      "menuName": "справочники",
+      "caption": "Справочники",
+      "title": "Справочники",
+      "children": [
+        {
+          "link": "i-i-s-uchet-тип-l",
+          "menuName": null,
+          "caption": "Тип",
+          "title": "Тип",
+          "children": null
+        },
+        {
+          "link": "i-i-s-uchet-вендор-l",
+          "menuName": null,
+          "caption": "Вендор",
+          "title": "Вендор",
+          "children": null
+        },
+        {
+          "link": "i-i-s-uchet-филиал-l",
+          "menuName": null,
+          "caption": "Филиал",
+          "title": "Филиал",
+          "children": null
+        },
+        {
+          "link": "i-i-s-uchet-пользователь-l",
+          "menuName": null,
+          "caption": "Пользователь",
+          "title": "Пользователь",
+          "children": null
+        }
+      ]
+    }
+  ],
+  "mobile": true
+}

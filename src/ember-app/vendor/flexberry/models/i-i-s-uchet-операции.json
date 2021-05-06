@@ -1,0 +1,197 @@
+﻿{
+  "name": "IISUchetОперации",
+  "modelName": "i-i-s-uchet-операции",
+  "className": "Операции",
+  "nameSpace": "IIS.Uchet",
+  "parentModelName": null,
+  "parentClassName": null,
+  "attrs": [
+    {
+      "name": "дата",
+      "type": "date",
+      "flexberryType": "DateTime",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "действие",
+      "type": "i-i-s-uchet-t-действие",
+      "flexberryType": "tДействие",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "состояние",
+      "type": "i-i-s-uchet-t-состояние",
+      "flexberryType": "tСостояние",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    }
+  ],
+  "belongsTo": [
+    {
+      "polymorphic": false,
+      "presence": true,
+      "name": "оборудование",
+      "relatedTo": "i-i-s-uchet-оборудование",
+      "inverse": null
+    },
+    {
+      "polymorphic": false,
+      "presence": true,
+      "name": "админ",
+      "relatedTo": "i-i-s-uchet-пользователь",
+      "inverse": null
+    }
+  ],
+  "hasMany": [],
+  "projections": [
+    {
+      "name": "ОперацииE",
+      "modelName": "i-i-s-uchet-операции",
+      "attrs": [
+        {
+          "name": "дата",
+          "caption": "Дата",
+          "hidden": false,
+          "index": 0
+        },
+        {
+          "name": "действие",
+          "caption": "Действие",
+          "hidden": false,
+          "index": 1
+        },
+        {
+          "name": "состояние",
+          "caption": "Состояние",
+          "hidden": false,
+          "index": 2
+        }
+      ],
+      "belongsTo": [
+        {
+          "lookupValue": "ИнвНомер",
+          "lookupValueField": "инвНомер",
+          "relationName": "Оборудование",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "инвНомер",
+              "caption": "Инв номер",
+              "hidden": true,
+              "index": 4
+            }
+          ],
+          "index": 3,
+          "type": "standard",
+          "caption": "Оборудование",
+          "name": "оборудование",
+          "relatedTo": "i-i-s-uchet-оборудование",
+          "inverse": null
+        },
+        {
+          "lookupValue": "ФИО",
+          "lookupValueField": "фИО",
+          "relationName": "Админ",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "фИО",
+              "caption": "ФИО",
+              "hidden": true,
+              "index": 6
+            }
+          ],
+          "index": 5,
+          "type": "standard",
+          "caption": "Админ",
+          "name": "админ",
+          "relatedTo": "i-i-s-uchet-пользователь",
+          "inverse": null
+        }
+      ],
+      "hasMany": []
+    },
+    {
+      "name": "ОперацииL",
+      "modelName": "i-i-s-uchet-операции",
+      "attrs": [
+        {
+          "name": "дата",
+          "caption": "Дата",
+          "hidden": false,
+          "index": 0
+        },
+        {
+          "name": "действие",
+          "caption": "Действие",
+          "hidden": false,
+          "index": 1
+        },
+        {
+          "name": "состояние",
+          "caption": "Состояние",
+          "hidden": false,
+          "index": 2
+        }
+      ],
+      "belongsTo": [
+        {
+          "lookupValue": null,
+          "lookupValueField": null,
+          "relationName": "Оборудование",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "инвНомер",
+              "caption": "Инв номер",
+              "hidden": false,
+              "index": 3
+            }
+          ],
+          "index": -1,
+          "type": "default",
+          "caption": "Инв номер",
+          "name": "оборудование",
+          "relatedTo": "i-i-s-uchet-оборудование",
+          "inverse": null
+        },
+        {
+          "lookupValue": null,
+          "lookupValueField": null,
+          "relationName": "Админ",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "фИО",
+              "caption": "ФИО",
+              "hidden": false,
+              "index": 4
+            }
+          ],
+          "index": -1,
+          "type": "default",
+          "caption": "ФИО",
+          "name": "админ",
+          "relatedTo": "i-i-s-uchet-пользователь",
+          "inverse": null
+        }
+      ],
+      "hasMany": []
+    }
+  ],
+  "stored": true,
+  "offline": true,
+  "external": false
+}

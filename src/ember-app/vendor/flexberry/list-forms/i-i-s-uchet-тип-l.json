@@ -1,0 +1,15 @@
+﻿{
+  "newForm": "i-i-s-uchet-тип-e",
+  "editForm": "i-i-s-uchet-тип-e",
+  "external": false,
+  "caption": "Тип",
+  "name": "IISUchetТипL",
+  "className": "ТипL",
+  "attrs": [],
+  "projections": [
+    {
+      "modelName": "i-i-s-uchet-тип",
+      "modelProjection": "ТипL"
+    }
+  ]
+}

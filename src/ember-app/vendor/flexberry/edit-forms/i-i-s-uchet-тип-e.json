@@ -1,0 +1,14 @@
+﻿{
+  "propertyLookup": [],
+  "external": false,
+  "caption": "Тип",
+  "name": "IISUchetТипE",
+  "className": "ТипE",
+  "attrs": [],
+  "projections": [
+    {
+      "modelName": "i-i-s-uchet-тип",
+      "modelProjection": "ТипE"
+    }
+  ]
+}

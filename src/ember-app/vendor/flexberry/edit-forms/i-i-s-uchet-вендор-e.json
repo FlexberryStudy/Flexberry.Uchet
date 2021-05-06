@@ -1,0 +1,14 @@
+﻿{
+  "propertyLookup": [],
+  "external": false,
+  "caption": "Вендор",
+  "name": "IISUchetВендорE",
+  "className": "ВендорE",
+  "attrs": [],
+  "projections": [
+    {
+      "modelName": "i-i-s-uchet-вендор",
+      "modelProjection": "ВендорE"
+    }
+  ]
+}

@@ -70,7 +70,55 @@ jobs:
               SSH_AUTH_SOCK=/tmp/ssh_agent.sock
               export SSH_AUTH_SOCK;
               cd "./src/ember-app"
+              IFS='/' read -ra REPOSITORY_ARRAY <<<"${GITHUB_REPOSITORY}";
+              REPOSITORY_NAME="${REPOSITORY_ARRAY[@]:1}"
+              # Update environment.
+              gh="
+                if (environment === 'gh-pages') {
+                  // For git-pages ENV rootUrl setting.
+                  ENV.rootURL = '/${REPOSITORY_NAME}/';
+                  ENV.locationType = 'hash';
+                }"
+              
+              ifs=$IFS
+              IFS=
+              find=
+              notfinded=1
+              while read str
+              do
+              #  echo "STR=$str"
+               case $str in
+                *if*environment*===*gh-pages*) find=1;;
+                *)
+                  if [ -n "$find" ]
+                  then
+                    case $str in
+                      *}*)
+                        find=
+                        notfinded=
+                        echo  "$gh"
+                      ;;
+                    esac
+                  else
+                    case $str in
+                      *return*ENV*)
+                        if [ -n "$notfinded" ]
+                        then
+                          echo  "$gh"
+                        fi
+                    esac
+                    echo $str
+                  fi
+               esac
+              done < ./config/environment.js > ./config/new_environment.js
+              IFS=$ifs
+              mv ./config/new_environment.js ./config/environment.js
               # Create offline
+              ember generate flexberry-application-offline app --enable-offline --metadata-dir=./vendor/flexberry --skip-confirmation
+              git add --all
+              git commit -m "Flexberry offline generation"
+              git push --force --quiet "git@github.com:${GITHUB_REPOSITORY}.git" > /dev/null 2>&1
+              echo "Done pushing offline generated files."              
               ember build -e gh-pages
               BRANCH=$(git branch -l gh-pages)
               if [ "$BRANCH" = "gh-pages" ]

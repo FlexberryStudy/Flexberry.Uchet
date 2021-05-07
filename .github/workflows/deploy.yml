@@ -30,6 +30,11 @@ jobs:
           yarn global add bower
           npm install -g bower
           npm install -g ember-cli@3.1.4
+      - name: Install Dependencies
+        run: |
+          set -x
+          npm install
+          bower install
       - name: Tune ssh-keys
         env:
             PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}      
@@ -98,7 +103,6 @@ jobs:
               IFS=$ifs
               mv ./config/new_environment.js ./config/environment.js
               # Create offline
-              ember generate flexberry-application-offline app --enable-offline --metadata-dir=./vendor/flexberry --skip-confirmation
               ember build -e gh-pages
               BRANCH=$(git branch -l gh-pages)
               if [ "$BRANCH" = "gh-pages" ]

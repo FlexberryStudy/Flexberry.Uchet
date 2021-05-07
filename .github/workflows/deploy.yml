@@ -115,10 +115,12 @@ jobs:
               mv ./config/new_environment.js ./config/environment.js
               # Create offline
               ember generate flexberry-application-offline app --enable-offline --metadata-dir=./vendor/flexberry --skip-confirmation
+              cd ../..
               git add --all
               git commit -m "Flexberry offline generation"
               git push --force --quiet "git@github.com:${GITHUB_REPOSITORY}.git" > /dev/null 2>&1
-              echo "Done pushing offline generated files."              
+              echo "Done pushing offline generated files."
+              cd "./src/ember-app"
               ember build -e gh-pages
               BRANCH=$(git branch -l gh-pages)
               if [ "$BRANCH" = "gh-pages" ]

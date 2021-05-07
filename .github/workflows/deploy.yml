@@ -30,6 +30,10 @@ jobs:
           yarn global add bower
           npm install -g bower
           npm install -g ember-cli@3.1.4
+  
+      - name: Starting X virtual framebuffer (Xvfb) in background
+        run: Xvfb -ac :99 -screen 0 1280x1024x16 &
+
       - name: Install Dependencies
         run: |
           set -x
@@ -55,8 +59,6 @@ jobs:
           set -x
           git config user.name "Flexberry-man"
           git config user.email "mail@flexberry.net"
-          SSH_AUTH_SOCK=/tmp/ssh_agent.sock
-          export SSH_AUTH_SOCK;
       - name: Git gh-pages
         run: |
           set -x
@@ -68,49 +70,6 @@ jobs:
               SSH_AUTH_SOCK=/tmp/ssh_agent.sock
               export SSH_AUTH_SOCK;
               cd "./src/ember-app"
-              IFS='/' read -ra REPOSITORY_ARRAY <<<"${GITHUB_REPOSITORY}";
-              REPOSITORY_NAME="${REPOSITORY_ARRAY[@]:1}"
-              # Update environment.
-              gh="
-                if (environment === 'gh-pages') {
-                  // For git-pages ENV rootUrl setting.
-                  ENV.rootURL = '/${REPOSITORY_NAME}/';
-                  ENV.locationType = 'hash';
-                }"
-              
-              ifs=$IFS
-              IFS=
-              find=
-              notfinded=1
-              while read str
-              do
-              #  echo "STR=$str"
-               case $str in
-                *if*environment*===*gh-pages*) find=1;;
-                *)
-                  if [ -n "$find" ]
-                  then
-                    case $str in
-                      *}*)
-                        find=
-                        notfinded=
-                        echo  "$gh"
-                      ;;
-                    esac
-                  else
-                    case $str in
-                      *return*ENV*)
-                        if [ -n "$notfinded" ]
-                        then
-                          echo  "$gh"
-                        fi
-                    esac
-                    echo $str
-                  fi
-               esac
-              done < ./config/environment.js > ./config/new_environment.js
-              IFS=$ifs
-              mv ./config/new_environment.js ./config/environment.js
               # Create offline
               ember build -e gh-pages
               BRANCH=$(git branch -l gh-pages)

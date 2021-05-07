@@ -33,8 +33,10 @@ jobs:
       - name: Install Dependencies
         run: |
           set -x
+          cd "./src/ember-app"
           npm install
           bower install
+          cd ../..
       - name: Tune ssh-keys
         env:
             PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}      

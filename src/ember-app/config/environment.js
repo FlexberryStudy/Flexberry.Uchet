@@ -196,5 +196,11 @@ module.exports = function(environment) {
     // here you can enable a production-specific feature
   }
 
+
+      if (environment === 'gh-pages') {
+        // For git-pages ENV rootUrl setting.
+        ENV.rootURL = '/Flexberry.Uchet/';
+        ENV.locationType = 'hash';
+      }
   return ENV;
 };

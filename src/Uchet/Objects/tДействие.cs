@@ -12,6 +12,7 @@ namespace IIS.Uchet
 {
     using System;
     using System.Xml;
+    using ICSSoft.STORMNET;
     
     
     //  *** Start programmer edit section *** (Using statements)
@@ -31,11 +32,13 @@ namespace IIS.Uchet
         //  *** Start programmer edit section *** (tДействие.Установка CustomAttributes)
 
         //  *** End programmer edit section *** (tДействие.Установка CustomAttributes)
+        [Caption("Установка")]
         Установка,
         
         //  *** Start programmer edit section *** (tДействие.Изменение CustomAttributes)
 
         //  *** End programmer edit section *** (tДействие.Изменение CustomAttributes)
+        [Caption("Изменение")]
         Изменение,
     }
 }

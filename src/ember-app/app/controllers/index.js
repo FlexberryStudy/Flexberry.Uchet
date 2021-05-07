@@ -22,13 +22,12 @@ export default Controller.extend({
             link: 'i-i-s-uchet-рабочее-место-l',
             caption: i18n.t('forms.application.sitemap.учет-оборудования-и-п-о.i-i-s-uchet-рабочее-место-l.caption'),
             title: i18n.t('forms.application.sitemap.учет-оборудования-и-п-о.i-i-s-uchet-рабочее-место-l.title'),
-            icon: 'suitcase',
             children: null
           }, {
             link: 'i-i-s-uchet-операции-l',
             caption: i18n.t('forms.application.sitemap.учет-оборудования-и-п-о.i-i-s-uchet-операции-l.caption'),
             title: i18n.t('forms.application.sitemap.учет-оборудования-и-п-о.i-i-s-uchet-операции-l.title'),
-            icon: 'folder open',
+            icon: 'tasks',
             children: null
           }]
         }, {
@@ -40,25 +39,25 @@ export default Controller.extend({
             link: 'i-i-s-uchet-тип-l',
             caption: i18n.t('forms.application.sitemap.справочники.i-i-s-uchet-тип-l.caption'),
             title: i18n.t('forms.application.sitemap.справочники.i-i-s-uchet-тип-l.title'),
-            icon: 'suitcase',
+            icon: 'book',
             children: null
           }, {
             link: 'i-i-s-uchet-вендор-l',
             caption: i18n.t('forms.application.sitemap.справочники.i-i-s-uchet-вендор-l.caption'),
             title: i18n.t('forms.application.sitemap.справочники.i-i-s-uchet-вендор-l.title'),
-            icon: 'folder open',
+            icon: 'chart line',
             children: null
           }, {
             link: 'i-i-s-uchet-филиал-l',
             caption: i18n.t('forms.application.sitemap.справочники.i-i-s-uchet-филиал-l.caption'),
             title: i18n.t('forms.application.sitemap.справочники.i-i-s-uchet-филиал-l.title'),
-            icon: 'chart line',
+            icon: 'file',
             children: null
           }, {
             link: 'i-i-s-uchet-пользователь-l',
             caption: i18n.t('forms.application.sitemap.справочники.i-i-s-uchet-пользователь-l.caption'),
             title: i18n.t('forms.application.sitemap.справочники.i-i-s-uchet-пользователь-l.title'),
-            icon: 'edit',
+            icon: 'folder',
             children: null
           }]
         }

@@ -56,7 +56,7 @@ CREATE TABLE [Операции] (
 
 	 [Действие] VARCHAR(9)  NULL,
 
-	 [Состояние] VARCHAR(7)  NULL,
+	 [Состояние] VARCHAR(8)  NULL,
 
 	 [Оборудование_m0] UNIQUEIDENTIFIER  NOT NULL,
 

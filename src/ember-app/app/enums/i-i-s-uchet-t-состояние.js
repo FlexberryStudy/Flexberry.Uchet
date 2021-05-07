@@ -1,7 +1,7 @@
 import { createEnum } from 'ember-flexberry-data/utils/enum-functions';
 
 export default createEnum({
-  Отлично: '',
-  Хорошо: '',
-  НеОчень: ''
+  Отлично: 'Отлично',
+  Хорошо: 'Хорошо',
+  НеОчень: 'Не очень'
 });

@@ -65,7 +65,7 @@ CREATE TABLE "Операции"
 
 	"Действие" NVARCHAR2(9) NULL,
 
-	"Состояние" NVARCHAR2(7) NULL,
+	"Состояние" NVARCHAR2(8) NULL,
 
 	"Оборудование_m0" RAW(16) NOT NULL,
 

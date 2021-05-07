@@ -22,12 +22,13 @@ export default Controller.extend({
             link: 'i-i-s-uchet-рабочее-место-l',
             caption: i18n.t('forms.application.sitemap.учет-оборудования-и-п-о.i-i-s-uchet-рабочее-место-l.caption'),
             title: i18n.t('forms.application.sitemap.учет-оборудования-и-п-о.i-i-s-uchet-рабочее-место-l.title'),
+            icon: 'archive',
             children: null
           }, {
             link: 'i-i-s-uchet-операции-l',
             caption: i18n.t('forms.application.sitemap.учет-оборудования-и-п-о.i-i-s-uchet-операции-l.caption'),
             title: i18n.t('forms.application.sitemap.учет-оборудования-и-п-о.i-i-s-uchet-операции-l.title'),
-            icon: 'tasks',
+            icon: 'edit',
             children: null
           }]
         }, {
@@ -39,7 +40,7 @@ export default Controller.extend({
             link: 'i-i-s-uchet-тип-l',
             caption: i18n.t('forms.application.sitemap.справочники.i-i-s-uchet-тип-l.caption'),
             title: i18n.t('forms.application.sitemap.справочники.i-i-s-uchet-тип-l.title'),
-            icon: 'book',
+            icon: 'building',
             children: null
           }, {
             link: 'i-i-s-uchet-вендор-l',
@@ -51,13 +52,13 @@ export default Controller.extend({
             link: 'i-i-s-uchet-филиал-l',
             caption: i18n.t('forms.application.sitemap.справочники.i-i-s-uchet-филиал-l.caption'),
             title: i18n.t('forms.application.sitemap.справочники.i-i-s-uchet-филиал-l.title'),
-            icon: 'file',
+            icon: 'calendar',
             children: null
           }, {
             link: 'i-i-s-uchet-пользователь-l',
             caption: i18n.t('forms.application.sitemap.справочники.i-i-s-uchet-пользователь-l.caption'),
             title: i18n.t('forms.application.sitemap.справочники.i-i-s-uchet-пользователь-l.title'),
-            icon: 'folder',
+            icon: 'folder open',
             children: null
           }]
         }

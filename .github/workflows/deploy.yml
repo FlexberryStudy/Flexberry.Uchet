@@ -50,6 +50,13 @@ jobs:
           # Start ssh agent
           ssh-agent -a $SSH_AUTH_SOCK #> /dev/null
           ssh-add - <<< "${PRIVATE_KEY}"
+      - name: Setup Git
+        run: |
+          set -x
+          git config user.name "Flexberry-man"
+          git config user.email "mail@flexberry.net"
+          SSH_AUTH_SOCK=/tmp/ssh_agent.sock
+          export SSH_AUTH_SOCK;
       - name: Git gh-pages
         run: |
           set -x
